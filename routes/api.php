@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ServicesController;
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "api" middleware group. Make something great!
+|
+*/
+
+// routes/api.php
+
+// routes/api.php
+
+
+
+
+// Add the custom endpoint
+Route::group(['prefix' => 'v1.0/chowhubs'], function () {
+
+    Route::get('services', [ServicesController::class, 'services']);
+
+    Route::post('register', [UserController::class, 'register']);
+
+    Route::post('test-register', [UserController::class, 'testRegister']);
+});
+
+
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});

@@ -1,0 +1,30 @@
+### POST TEST POST USER API
+
+POST http://localhost:8000/api/v1.0/chowhubs/register HTTP/1.1
+content-type: application/json
+
+{
+    "full_name": "Yinka OKEGBEMI",
+    "email": "idigits.solutions@gmail.com",
+    "password": "securepassword",
+    "address": "123 Main St",
+    "phone": "08152627759"
+}
+
+
+### POST TEST POST USER API
+
+POST http://localhost:8000/api/v1.0/chowhubs/test-register HTTP/1.1
+content-type: application/json
+
+{
+    "full_name": "Yinka OKEGBEMI",
+    "email": "idigits.solutions@gmail.com",
+    "password": "securepassword",
+    "address": "123 Main St",
+    "phone": "08152627759"
+}
+
+### GET TEST
+
+GET http://localhost:8000/api/v1.0/chowhubs/services
