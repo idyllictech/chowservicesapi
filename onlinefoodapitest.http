@@ -1,0 +1,60 @@
+### POST REGISTER NEW USER
+
+POST https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/register HTTP/1.1
+content-type: application/json
+
+{
+    "full_name": "Yinka OKEGBEMI",
+    "email": "idigits.solutions@gmail.com",
+    "password": "securepassword",
+    "address": "123 Main St",
+    "phone": "08152627759"
+}
+
+
+### POST REGISTER NEW USER TWO
+
+POST https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/register HTTP/1.1
+content-type: application/json
+
+{
+    "full_name": "ADEYINKA OKEGBEMI",
+    "email": "digimyxt@gmail.com",
+    "password": "securepassword",
+    "address": "123 Marvin AVenue",
+    "phone": "08180957991"
+}
+
+### send-password-reset-link
+
+### PASSWORD RESET
+
+POST https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/send-password-reset-link
+content-type: application/json
+
+{
+
+    "email": "idigits1.solutions@gmail.com",       
+}
+
+### POST LOGIN
+
+POST https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/login
+content-type: application/json
+
+{
+
+    "email": "idigits.solutions@gmail.com",
+    "password": "securepassword"    
+}
+
+
+
+### GET Registered USERS
+
+GET https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/users
+
+
+### GET TEST
+
+GET https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/services

@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+
+    return redirect('/api/v1.0/chowhubs/services');
+
+    //return redirect()->away('/api/v1.0/chowhubs/services');
 });
