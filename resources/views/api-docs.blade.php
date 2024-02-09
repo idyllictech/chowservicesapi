@@ -4,10 +4,9 @@
 
 @section('content')
     <div class="container">
-        <h1>FoodHubs API Documentation</h1>
+        <h2>FoodHubs API Documentation</h2>
 
-        <h2>Endpoints:</h2>
-
+        <h4 class="text-danger">Endpoints:</h4>
         <ul>
             <li class="text-info"><strong>GET /api/v1.0/chowhubs/services</strong>: Retrieve a list of services.</li>
             <li class="text-success"><strong>POST /api/v1.0/chowhubs/register</strong>: Register a new user. Parameters: full_name, email, password, address (optional), phone (optional).</li>
@@ -20,7 +19,7 @@
 
         <p>For protected endpoints, include the user's token in the Authorization header.</p>
 
-        <h2>Examples:</h2>
+        <h3>Examples:</h3>
 
         <p class="text-success"><strong>User Registration:</strong></p>
         <pre>
