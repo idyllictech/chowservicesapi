@@ -108,7 +108,11 @@ class UserController extends Controller
     // GEL All Users
     public function getAllUsers()
     {
-        $users = User::all();
+        //$users = User::all();
+
+        // Select only the fields you want to include
+        $users = User::select('uuid', 'full_name', 'address', 'phone')->get();
+
 
         return response()->json(['users' => $users], 200);
     }
