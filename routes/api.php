@@ -19,9 +19,6 @@ use App\Http\Controllers\TestController;
 
 // routes/api.php
 
-// routes/api.php
-
-
 
 // Add the custom endpoint
 Route::group(['prefix' => 'v1.0/chowhubs'], function () {

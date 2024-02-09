@@ -14,7 +14,7 @@ class TestController extends Controller
         $mail = new PHPMailer(true);
 
         try {
-            //Server settings
+            // Server settings
             $mail->isSMTP();
             $mail->Host = config('mail.host');  // Use your SMTP host
             $mail->SMTPAuth = true;
@@ -23,7 +23,7 @@ class TestController extends Controller
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption, `ssl` also accepted
             $mail->Port = config('mail.port'); // TCP port to connect to
 
-            //Recipients
+            // Recipients
             $mail->setFrom(config('mail.from.address'), config('mail.from.name'));
             $mail->addAddress('recipient@example.com'); // Add recipient email
 
@@ -33,9 +33,13 @@ class TestController extends Controller
             $mail->Body = 'This is a test email. If you receive this, email sending is working!';
 
             $mail->send();
+            
             return response()->json(['message' => 'Test email sent successfully.']);
         } catch (Exception $e) {
-            return response()->json(['error' => 'Error sending test email. ' . $mail->ErrorInfo]);
+            // Ensure the error message is UTF-8 encoded
+            $errorInfo = mb_convert_encoding($mail->ErrorInfo, 'UTF-8', 'UTF-8');
+
+            return response()->json(['error' => 'Error sending test email. ' . $errorInfo]);
         }
     }
 }
