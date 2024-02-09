@@ -8,7 +8,7 @@
 
         <h4 class="text-danger">Endpoints:</h4>
         <ul>
-            <li class="text-info"><strong>GET /api/v1.0/chowhubs/services</strong>: Retrieve a list of services.</li>
+            <li class="text-info"><strong>GET /api/v1.0/chowhubs/users</strong>: Retrieve a list of registered Users.</li>
             <li class="text-success"><strong>POST /api/v1.0/chowhubs/register</strong>: Register a new user. Parameters: full_name, email, password, address (optional), phone (optional).</li>
             <li class="text-success"><strong>POST /api/v1.0/chowhubs/login</strong>: User login. Parameters: email, password.</li>
             <li class="text-success"><strong>POST /api/v1.0/chowhubs/forgot-password</strong>: Request a password reset. Parameters: email.</li>

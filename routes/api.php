@@ -28,6 +28,9 @@ Route::group(['prefix' => 'v1.0/chowhubs'], function () {
 
     Route::get('services', [ServicesController::class, 'services']);
 
+    // DELETE USER
+    Route::delete('users/{uuid}', [UserController::class, 'deleteUser']);
+
     Route::post('register', [UserController::class, 'register']);
     
     // Users

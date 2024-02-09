@@ -159,4 +159,21 @@ class UserController extends Controller
         return response()->json(['message' => 'Password reset link sent to your email'], 200);
     }
 
+
+    public function deleteUser($uuid)
+    {
+        // Find the user by UUID
+        $user = User::where('uuid', $uuid)->first();
+
+        // Check if the user exists
+        if (!$user) {
+            return response()->json(['error' => 'User not found.'], 404);
+        }
+
+        // Delete the user
+        $user->delete();
+
+        return response()->json(['message' => 'User deleted successfully.']);
+    }
+
 }

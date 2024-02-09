@@ -49,6 +49,12 @@ content-type: application/json
 }
 
 
+### DELETE USER WITH UUID
+
+DELETE https://localhost:8000/api/v1.0/chowhubs/users/{uuid}
+
+### http://localhost:8000/api/v1.0/chowhubs/users/3159208c-0815-4305-9d9a-d242b3050d15
+
 
 ### GET Registered USERS
 
