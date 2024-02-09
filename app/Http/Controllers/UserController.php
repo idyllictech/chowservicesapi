@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Services\EmailService;
 use App\Models\TemporaryToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
-use App\Services\EmailService;
+
 
 
 class UserController extends Controller
@@ -163,7 +164,7 @@ class UserController extends Controller
         //Mail::to($user->email)->send(new ResetPasswordEmail($resetLink));
 
         $resetLink = url("/api/v1.0/chowhubs/reset-password/$token");
-        
+
         $this->emailService->send($user->email, 'Password Reset Link', $resetLink);
 
 
