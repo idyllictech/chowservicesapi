@@ -22,7 +22,7 @@ Authorization: Bearer generated-tokens-here
 
 POST http://localhost:8000/api/v1.0/chowhubs/register HTTP/1.1
 Content-Type: "application/json"
-Authorization: Bearer generated-tokens-here
+Authorization: Bearer Zj6lmBkIAo38R0Us9jcdYlHYWaRf0gBb
 
 {
     "full_name": "ADEYINKA OKEGBEMI",
@@ -58,7 +58,7 @@ content-type: application/json
 
 ### DELETE USER WITH UUID
 
-DELETE http://localhost:8000/api/v1.0/chowhubs/users/5c4aa1e5-9f6b-4d62-a248-a3709fb23bcb
+DELETE http://localhost:8000/api/v1.0/chowhubs/users/4b19f050-eea7-4b89-bffd-f60aa2af6000
 
 ### http://localhost:8000/api/v1.0/chowhubs/users/3159208c-0815-4305-9d9a-d242b3050d15
 

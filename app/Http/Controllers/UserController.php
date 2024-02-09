@@ -14,22 +14,16 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use App\Services\EmailService;
+
 
 class UserController extends Controller
 {
-    //
-    private $mail;
+    private $emailService;
 
-    public function __construct()
+    public function __construct(EmailService $emailService)
     {
-        $this->mail = new PHPMailer();
-        $this->mail->isSMTP();
-        $this->mail->Host = config('mail.mail_host');
-        $this->mail->SMTPAuth = true;
-        $this->mail->Username = config('mail.mail_username');
-        $this->mail->Password = config('mail.mail_password');
-        $this->mail->SMTPSecure = config('mail.mail_encryption');
-        $this->mail->Port = config('mail.mail_port');
+        $this->emailService = $emailService;
     }
     public function register(Request $request)
     {
@@ -134,24 +128,15 @@ class UserController extends Controller
 
     private function sendOtpEmail($email, $otp)
     {
-        // Email Configuration
-        $this->mail->setFrom(config('mail.mail_from_address'), config('mail.mail_from_name'));
-        $this->mail->addAddress($email);
-        $this->mail->isHTML(true);
-        $this->mail->Subject = 'Email Verification OTP';
-        $this->mail->Body = "Your OTP for email verification is: $otp. This OTP is valid for 15 minutes.";
-
-        // Send the email
-        if (!$this->mail->send()) {
-            // Handle email sending failure
-            return false;
-        }
+        
+        $subject = 'Email Verification OTP';
+        $body = "Your OTP for email verification is: $otp. This OTP is valid for 15 minutes.";
 
         // Save the OTP to the user record in the database
         // Assuming you have an 'otp' column in the 'users' table
         User::where('email', $email)->update(['otp' => $otp]);
 
-        return true;
+        return $this->emailService->send($email, $subject, $body);
     }
 
     public function sendPasswordResetLink(Request $request)
@@ -174,8 +159,13 @@ class UserController extends Controller
         );
 
         // Send the password reset link to the user's email
+        //$resetLink = url("/api/v1.0/chowhubs/reset-password/$token");
+        //Mail::to($user->email)->send(new ResetPasswordEmail($resetLink));
+
         $resetLink = url("/api/v1.0/chowhubs/reset-password/$token");
-        Mail::to($user->email)->send(new ResetPasswordEmail($resetLink));
+        
+        $this->emailService->send($user->email, 'Password Reset Link', $resetLink);
+
 
         return response()->json(['message' => 'Password reset link sent to your email'], 200);
     }
