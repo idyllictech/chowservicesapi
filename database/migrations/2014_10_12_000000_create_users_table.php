@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->timestamp('registration_date')->default(now());
+            $table->string('otp')->nullable();        
             $table->timestamps();
         });
     }

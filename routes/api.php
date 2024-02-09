@@ -29,8 +29,15 @@ Route::group(['prefix' => 'v1.0/chowhubs'], function () {
     Route::get('services', [ServicesController::class, 'services']);
 
     Route::post('register', [UserController::class, 'register']);
+    
+    // Users
+    Route::get('users', [UserController::class, 'getAllUsers']);
 
-    Route::post('test-register', [UserController::class, 'testRegister']);
+    // LOgin
+    Route::post('login', [UserController::class, 'login']);
+
+    //RESET PASSWORD LInk
+    Route::post('send-password-reset-link', [UserController::class, 'sendPasswordResetLink']);
 });
 
 
