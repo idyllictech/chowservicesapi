@@ -2,8 +2,12 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <!-- ... -->
+    <!-- ... (existing head content) ... -->
+    <!-- Include Bootstrap CSS locally -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <!-- ... (more head content) ... -->
 </head>
 <body>
     <div id="app">

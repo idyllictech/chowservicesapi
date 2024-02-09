@@ -35,4 +35,9 @@ Route::get('/{any}', function () {
     return redirect('/api');
 })->where('any', '.*');
 
+// Fallback route to catch any invalid URL and redirect to /api
+Route::fallback(function () {
+    return redirect('/api');
+});
+
 
