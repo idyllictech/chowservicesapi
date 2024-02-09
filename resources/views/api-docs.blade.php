@@ -9,6 +9,7 @@
         <h5 class="text-primary">Endpoints:</h5>
         <ul>
             <li > <span class="text-info"><strong>GET /api/v1.0/chowhubs/services</strong>:</span> Retrieve Services Welcome mesage.</li>
+            <li > <span class="text-info"><strong>GET /api/v1.0/chowhubs/generate-temp-token</strong>:</span> Generate Public Tokens before Creating Users.</li>
             <li ><span class="text-success"><strong><strong>POST /api/v1.0/chowhubs/register</strong>:</span> Register a new user. Parameters: full_name, email, password, address (optional), phone (optional).</li>
             <li > <span class="text-success"><strong>POST /api/v1.0/chowhubs/login</strong>:</span> User login. Parameters: email, password.</li>
             <li > <span class="text-success"><strong>POST /api/v1.0/chowhubs/forgot-password</strong>:</span> Request a password reset. Parameters: email.</li>
