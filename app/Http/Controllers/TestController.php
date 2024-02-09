@@ -20,7 +20,7 @@ class TestController extends Controller
             $mail->SMTPAuth = true;
             $mail->Username = config('mail.username'); // SMTP username
             $mail->Password = config('mail.password'); // SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption, `ssl` also accepted
+            //$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption, `ssl` also accepted
             $mail->Port = config('mail.port'); // TCP port to connect to
 
             // Recipients
