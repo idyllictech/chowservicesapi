@@ -18,6 +18,10 @@ Route::get('/api-docs', function () {
 });
 
 Route::get('/', function () {
+    return view('api-docs');
+});
+
+Route::get('/api', function () {
     //return view('welcome');
 
     return redirect('/api/v1.0/chowhubs/services');
