@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/api-docs', function () {
     return view('api-docs');
 });
@@ -29,5 +31,8 @@ Route::get('/api', function () {
     //return redirect()->away('/api/v1.0/chowhubs/services');
 });
 
+Route::get('/{any}', function () {
+    return redirect('/api');
+})->where('any', '.*');
 
 
