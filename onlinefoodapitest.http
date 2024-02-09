@@ -22,7 +22,7 @@ Authorization: Bearer generated-tokens-here
 
 POST https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/register HTTP/1.1
 Content-Type: "application/json"
-Authorization: Bearer qBweEFpLMQ8ENzdWgcezCGUfuUARIM1H
+Authorization: Bearer generated-tokens-here
 
 {
     "full_name": "ADEYINKA OKEGBEMI",

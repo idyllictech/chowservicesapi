@@ -7,7 +7,7 @@ GET http://localhost:8000/api/v1.0/chowhubs/generate-temp-token HTTP/1.1
 
 POST http://localhost:8000/api/v1.0/chowhubs/register HTTP/1.1
 Content-Type: "application/json"
-Authorization: Bearer 5AMGc6PVShbXMoeysUPyYHfIEKIobI1f
+Authorization: Bearer generated-tokens-here
 
 {
     "full_name": "Yinka OKEGBEMI",
@@ -22,7 +22,7 @@ Authorization: Bearer 5AMGc6PVShbXMoeysUPyYHfIEKIobI1f
 
 POST http://localhost:8000/api/v1.0/chowhubs/register HTTP/1.1
 Content-Type: "application/json"
-Authorization: Bearer P3Zw9g2HD51j4VMKqIQh2h3cUi0QCehA
+Authorization: Bearer generated-tokens-here
 
 {
     "full_name": "ADEYINKA OKEGBEMI",
