@@ -1,4 +1,4 @@
-### POST TEST POST USER API
+### POST REGISTER NEW USER
 
 POST http://localhost:8000/api/v1.0/chowhubs/register HTTP/1.1
 content-type: application/json
@@ -11,13 +11,39 @@ content-type: application/json
     "phone": "08152627759"
 }
 
+
+### POST REGISTER NEW USER TWO
+
+POST http://localhost:8000/api/v1.0/chowhubs/register HTTP/1.1
+content-type: application/json
+
+{
+    "full_name": "ADEYINKA OKEGBEMI",
+    "email": "digimyxt@gmail.com",
+    "password": "securepassword",
+    "address": "123 Marvin AVenue",
+    "phone": "08180957991"
+}
+
+### send-password-reset-link
+
+### PASSWORD RESET
+
+POST http://localhost:8000/api/v1.0/chowhubs/send-password-reset-link
+content-type: application/json
+
+{
+
+    "email": "idigits1.solutions@gmail.com",       
+}
+
 ### POST LOGIN
 
 POST http://localhost:8000/api/v1.0/chowhubs/login
 content-type: application/json
 
 {
-    
+
     "email": "idigits.solutions@gmail.com",
     "password": "securepassword"    
 }

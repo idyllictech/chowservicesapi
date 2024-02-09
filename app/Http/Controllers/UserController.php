@@ -58,6 +58,9 @@ class UserController extends Controller
             // For demonstration purposes, I'm assuming a 'otp' column in the 'users' table.
             $validatedData['otp'] = $otp;
 
+            // Generate UUID
+            $validatedData['uuid'] = Str::uuid()->toString();
+
             // Create a new user
             $user = User::create($validatedData);
 
