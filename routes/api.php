@@ -46,7 +46,7 @@ Route::group(['prefix' => 'v1.0/chowhubs'], function () {
     //RESET PASSWORD LInk
     Route::post('send-password-reset-link', [UserController::class, 'sendPasswordResetLink']);
 
-    Route::get('/test-email', [TestController::class, 'sendTestEmail']);
+    Route::get('test-email', [TestController::class, 'sendTestEmail']);
 });
 
 
