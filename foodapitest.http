@@ -1,7 +1,13 @@
-### POST REGISTER NEW USER
+#### GENERATE TOKEN TO BE USED
+
+GET http://localhost:8000/api/v1.0/chowhubs/generate-temp-token HTTP/1.1
+
+
+### POST REGISTER NEW USER ### Authorization: Bearer generated-tokens-here
 
 POST http://localhost:8000/api/v1.0/chowhubs/register HTTP/1.1
-content-type: application/json
+Content-Type: "application/json"
+Authorization: Bearer 5AMGc6PVShbXMoeysUPyYHfIEKIobI1f
 
 {
     "full_name": "Yinka OKEGBEMI",
@@ -12,10 +18,11 @@ content-type: application/json
 }
 
 
-### POST REGISTER NEW USER TWO
+### POST REGISTER NEW USER TWO ### Authorization: Bearer generated-tokens-here
 
 POST http://localhost:8000/api/v1.0/chowhubs/register HTTP/1.1
-content-type: application/json
+Content-Type: "application/json"
+Authorization: Bearer P3Zw9g2HD51j4VMKqIQh2h3cUi0QCehA
 
 {
     "full_name": "ADEYINKA OKEGBEMI",
@@ -51,7 +58,7 @@ content-type: application/json
 
 ### DELETE USER WITH UUID
 
-DELETE https://localhost:8000/api/v1.0/chowhubs/users/{uuid}
+DELETE http://localhost:8000/api/v1.0/chowhubs/users/5c4aa1e5-9f6b-4d62-a248-a3709fb23bcb
 
 ### http://localhost:8000/api/v1.0/chowhubs/users/3159208c-0815-4305-9d9a-d242b3050d15
 

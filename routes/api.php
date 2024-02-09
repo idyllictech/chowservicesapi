@@ -31,9 +31,13 @@ Route::group(['prefix' => 'v1.0/chowhubs'], function () {
     // DELETE USER
     Route::delete('users/{uuid}', [UserController::class, 'deleteUser']);
 
+    //GET GENERATE PUBLIC Token
+    Route::get('generate-temp-token', [UserController::class, 'generateTemporaryToken']);
+
+    // POST REQUEST REGISTER NEW USER
     Route::post('register', [UserController::class, 'register']);
     
-    // Users
+    // Users LIST
     Route::get('users', [UserController::class, 'getAllUsers']);
 
     // LOgin

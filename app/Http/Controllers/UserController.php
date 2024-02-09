@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\TemporaryToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -12,8 +13,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-
-
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -34,6 +34,27 @@ class UserController extends Controller
     public function register(Request $request)
     {
         try {
+
+            // Get the token from the request headers
+
+            $authorizationHeader = $request->header('Authorization');
+
+            if (!$authorizationHeader || !str_starts_with($authorizationHeader, 'Bearer ')) {
+                return response()->json(['error' => 'Invalid or missing token.'], 401);
+            }
+
+            $token = substr($authorizationHeader, 7); // Remove "Bearer " prefix
+                      
+            // Validate the token
+            $temporaryToken = TemporaryToken::where('token', $token)->where('status', false)->first();
+
+            if (!$temporaryToken) {
+                return response()->json(['error' => 'Invalid Or Used token.'], 401);
+            }
+
+            // Update the token status to true
+            $temporaryToken->update(['status' => true]);
+            
             // Validate the request data
             $validatedData = $request->validate([
                 'full_name' => 'required|string|max:255',
@@ -174,6 +195,35 @@ class UserController extends Controller
         $user->delete();
 
         return response()->json(['message' => 'User deleted successfully.']);
+    }
+
+
+    public function generateTemporaryToken()
+    {
+       
+        try {
+            // Generate a temporary token with a default status of false
+            $token = Str::random(32);
+    
+            $temporaryToken = TemporaryToken::create([
+                'token' => $token,
+                'status' => false,
+            ]);
+    
+            return response()->json([
+                'token' => $token,
+                'message' => 'Generated token.',
+            ], 201);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error generating temporary token.'], 500);
+        }
+    }
+
+
+    public function retrieveTemporaryToken($token)
+    {
+        // Retrieve the token from the database using the TemporaryToken model
+        return TemporaryToken::where('token', $token)->first();
     }
 
 }

@@ -1,7 +1,13 @@
-### POST REGISTER NEW USER
+#### GENERATE TOKEN TO BE USED
+
+GET https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/generate-temp-token HTTP/1.1
+
+
+### POST REGISTER NEW USER ### Authorization: Bearer generated-tokens-here
 
 POST https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/register HTTP/1.1
-content-type: application/json
+Content-Type: "application/json"
+Authorization: Bearer generated-tokens-here
 
 {
     "full_name": "Yinka OKEGBEMI",
@@ -15,7 +21,8 @@ content-type: application/json
 ### POST REGISTER NEW USER TWO
 
 POST https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/register HTTP/1.1
-content-type: application/json
+Content-Type: "application/json"
+Authorization: Bearer generated-tokens-here
 
 {
     "full_name": "ADEYINKA OKEGBEMI",
@@ -51,9 +58,9 @@ content-type: application/json
 
 
 
-### DELETE USER WITH UUID
+### DELETE USER WITH UUID https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/users/{uuid}
 
-DELETE https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/users/{uuid}
+DELETE https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/users/3159208c-0815-4305-9d9a-d242b3050d15
 
 ### https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/users/3159208c-0815-4305-9d9a-d242b3050d15
 
