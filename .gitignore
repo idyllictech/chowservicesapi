@@ -5,6 +5,8 @@
 /public/storage
 /storage/*.key
 /vendor
+onlinefoodapitest.http
+foodapitest.http
 .env
 .env.backup
 .env.production

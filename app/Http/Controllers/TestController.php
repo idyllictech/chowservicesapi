@@ -15,6 +15,7 @@ class TestController extends Controller
 
         try {
             // Server settings
+            $mail->SMTPDebug = 2; 
             $mail->isSMTP();
             $mail->Host = config('mail.host');  // Use your SMTP host
             $mail->SMTPAuth = true;

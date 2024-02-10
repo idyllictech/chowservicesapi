@@ -7,7 +7,7 @@ GET https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/generate-temp-token HTTP/1
 
 POST https://chowsapi.idigits.com.ng/api/v1.0/chowhubs/register HTTP/1.1
 Content-Type: "application/json"
-Authorization: Bearer generated-tokens-here
+Authorization: Bearer 8NHm24FFy2dOjyMBEiuyhTNIQRbJKM3B
 
 {
     "full_name": "Yinka OKEGBEMI",

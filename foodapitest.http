@@ -22,7 +22,7 @@ Authorization: Bearer generated-tokens-here
 
 POST http://localhost:8000/api/v1.0/chowhubs/register HTTP/1.1
 Content-Type: "application/json"
-Authorization: Bearer Zj6lmBkIAo38R0Us9jcdYlHYWaRf0gBb
+Authorization: Bearer generated-tokens
 
 {
     "full_name": "ADEYINKA OKEGBEMI",
