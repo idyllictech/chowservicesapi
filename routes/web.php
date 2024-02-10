@@ -31,6 +31,15 @@ Route::get('/api', function () {
     //return redirect()->away('/api/v1.0/chowhubs/services');
 });
 
+
+Route::get('/testemail', function () {
+    //return view('welcome');
+
+    //return redirect('/api/v1.0/chowhubs/services');
+
+    return redirect()->away('https://chowsapi.idigits.com.ng/phpmailertest/');
+});
+
 Route::get('/{any}', function () {
     return redirect('/api');
 })->where('any', '.*');
