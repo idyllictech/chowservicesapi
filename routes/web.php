@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Mail\MyTestEmail;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/testroute', function() {
+
+    $name = "Idyllic Digitest";
+
+    // The email sending is done using the to method on the Mail facade
+    Mail::to('idigits.solutions@gmail.com’')->send(new MyTestEmail($name));
+});
 
 Route::get('/testemail', function () {
     //return view('welcome');
